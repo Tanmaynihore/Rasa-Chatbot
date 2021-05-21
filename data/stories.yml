@@ -1,0 +1,40 @@
+version: "2.0"
+
+stories:
+
+- story: Book path
+  steps:
+  - intent: Step1
+  - action: form_book_table
+  - active_loop: form_book_table
+  - slot_was_set:
+    - requested_slot: number
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - requested_slot: time
+  - action: form_book_table
+  - active_loop: null 
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_reset_slots
+
+- story: FAQ path 1
+  steps:
+  - intent: Timing
+  - action: utter_Timing
+
+- story: FAQ path 2
+  steps:
+  - intent: Open
+  - action: utter_Open
+
+- story: FAQ path 3
+  steps:
+  - intent: Cancel
+  - action: utter_Cancel
+
+- story: FAQ path 4
+  steps:
+  - intent: Specials
+  - action: utter_Specials

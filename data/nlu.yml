@@ -1,0 +1,88 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+
+- intent: Step1
+  examples: |
+    - I want to reserve a table
+    - I want to book a table 
+    - I want a table
+    - I want to reserve a table for [4](number)
+    - I want to reserve a table for a party of [4](number)    
+    - I want to reserve a table for [2](number)
+    - I want to reserve a table for a party of [2](number)
+
+
+- intent: Step2
+  examples: |
+    - [2](number)
+    - [2](number) seats 
+    - [4](number) seats 
+    - [4](number)
+
+
+- intent: Step3
+  examples: |
+    - [7:30 pm](time)
+    - [7 pm](time)
+    - [8 pm](time)
+    - [8:30 pm](time)
+    - [9 pm](time)
+    - [9:30 pm](time)
+    - [In an hour](time)
+    - [In half an hour](time)
+
+- intent: table_type
+  examples: |
+    - [AC](name)
+    - [Non-AC](name)
+
+
+- intent: Timing
+  examples: |
+    - What are your timings?
+    
+- intent: Open
+  examples: |
+    - What days are you open?
+    - Are you open today?
+    
+    
+- intent: Cancel
+  examples: |
+    - How do I cancel a reservation?
+    
+    
+- intent: Specials
+  examples: |
+    - What are the specials?

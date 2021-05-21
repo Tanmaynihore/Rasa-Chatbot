@@ -1,0 +1,172 @@
+# version: "2.0"
+
+# intents:
+#   - greet
+#   - goodbye
+#   - affirm
+#   - deny
+#   - mood_great
+#   - mood_unhappy
+#   - bot_challenge
+#   - Step1
+#   - Step2
+#   - Step3
+#   - table_type
+#   - Specials
+#   - Open
+#   - Close
+#   - Timing
+
+# forms:
+#   - form_book_table
+
+# # ===================================================================================
+# entities:
+#   - number
+#   - name
+#   - time
+
+# # ===================================================================================
+# slots:
+#   number: 
+#     type: unfeaturized 
+
+#   name: 
+#     type: unfeaturized 
+
+#   time: 
+#     type: unfeaturized 
+
+# # ===================================================================================
+# actions:
+#   - action_check_working_hours
+#   - action_reset_slots
+#   - time_Managing      
+#   - validate_form_book_table  
+# responses:
+#   utter_greet:
+#   - text: "Wellcome to our Restourant, How can I help you ? "
+
+#   utter_ask_number:
+#   - text: "How many seats would you like to reserve"
+
+#   utter_ask_name:
+#   - text: "Which section would you like to book:"
+#     buttons:
+#     - payload: /table_type
+#       title: AC
+#     - payload: /table_type
+#       title: Non-AC
+
+#   utter_ask_time:
+#   - text:  "When would you like to book a reservation? (We are only open from 7pm to 10pm)"
+
+#   utter_submit:
+#   - text: "You have reserved {number} seats in our {name} section for {time} Thanks!"
+
+
+#   utter_goodbye:
+#   - text: "Thank You,for choosing us have a nice day "
+
+#   utter_iamabot:
+#   - text: "I am a bot, powered by Rasa."
+
+#   # utter_Timing:
+#   # - text: "The restaurant opens at 7pm and closes at 10pm."
+  
+#   # utter_Open:
+#   # - text: "The restaurant is open each and every day."
+  
+#   # utter_Cancel:
+#   # - text: "To cancel a reservation, simply call us at +91 9876543210 and cancel your reservation"
+
+#   # utter_Specials:
+#   # - text: " Our chef is a master of the Italian cuisine. Our core speciality is our pasta, which is renowned throughout the city."
+
+
+# session_config:
+#   session_expiration_time: 60
+#   carry_over_slots_to_new_session: true
+
+version: "2.0"
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - Step1
+  - Step2
+  - Step3
+  - table_type
+  - Specials
+  - Open
+  - Close
+  - Timing
+forms:
+  form_book_table:
+    required_slots:
+        number:
+          - type: from_entity
+            entity: number
+            intent: Step2
+        name:
+          - type: from_entity
+            entity: name
+            intent: table_type
+        time:
+          - type: from_entity
+            entity: time
+            intent: Step3
+# ===================================================================================
+entities:
+  - number
+  - name
+  - time
+# ===================================================================================
+slots:
+  number:
+    type: unfeaturized
+  name:
+    type: unfeaturized
+  time:
+    type: unfeaturized
+# ===================================================================================
+actions:
+  - action_check_working_hours
+  - action_reset_slots
+  - time_Managing
+  - validate_form_book_table
+responses:
+  utter_greet:
+  - text: "Wellcome to our Restourant, How can I help you ? "
+  utter_ask_number:
+  - text: "How many seats would you like to reserve"
+  utter_ask_name:
+  - text: "Which section would you like to book:"
+    buttons:
+    - payload: /table_type{"name":"AC"}
+      title: AC
+    - payload: /table_type{"name":"Non-AC"}
+      title: Non-AC
+  utter_ask_time:
+  - text:  "When would you like to book a reservation? (We are only open from 7pm to 10pm)"
+  utter_submit:
+  - text: "You have reserved {number} seats in our {name} section for {time} pm Thanks!"
+  utter_goodbye:
+  - text: "Thank You,for choosing us have a nice day "
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+  utter_Timing:
+  - text: "The restaurant opens at 7pm and closes at 10pm."
+  utter_Open:
+  - text: "The restaurant is open each and every day."
+  utter_Cancel:
+  - text: "To cancel a reservation, simply call us at +91 9876543210 and cancel your reservation"
+  utter_Specials:
+  - text: " Our chef is a master of the Italian cuisine. Our core speciality is our pasta, which is renowned throughout the city."
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
